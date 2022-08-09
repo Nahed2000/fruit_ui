@@ -14,7 +14,7 @@ class CustomSocialButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ElevatedButton.icon(
-        onPressed: () {},
+        onPressed: onPress,
         label:  Text(
           title,
           style: const TextStyle(color: Colors.black,fontSize: 14),

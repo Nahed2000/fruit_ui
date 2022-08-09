@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../firebase/firebase_auth.dart';
 import '../../widget/custom_button.dart';
 import '../../widget/custom_social_button.dart';
 import 'complete_information.dart';
@@ -41,25 +42,30 @@ class _LoginScreenState extends State<LoginScreen> {
                 CustomSocialButton(
                   title: 'Login in with',
                   imageIcon: 'assets/images/search (7).png',
-                  onPress: () {},
+                  onPress: ()async {
+                    print('we');
+                    await FirebaseAuthController().signInWithGoogle();
+                  },
                 ),
                 const SizedBox(width: 10),
                 CustomSocialButton(
                   title: 'Login in with',
                   imageIcon: 'assets/images/facebook (6).png',
-                  onPress: () {},
+                  onPress: () async {
+                    print('we are here');
+                     await FirebaseAuthController().signInWithFacebook();
+                  },
                 ),
-
               ],
-            ),  Padding(
-              padding: const EdgeInsets.all(8.0),
+            ),  const Padding(
+              padding: EdgeInsets.all(8.0),
             ),
             CustomButton(
                 title: 'test information',
                 onPress: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => CompleteInformationScreen(),
+                      builder: (context) => const CompleteInformationScreen(),
                     ))),
             const Spacer(
               flex: 2,
